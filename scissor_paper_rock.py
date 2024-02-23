@@ -5,14 +5,6 @@ spr_dict = {
     "2": "Paper", 
     "3": "Scissor",
 }
-spr_list = ["Rock", "Paper", "Scissor"]
-
-print("""
-Choose one of the following:
-1: Rock
-2: Paper
-3: Scissor
-""")
 
 def print_info():
     print("""
@@ -47,9 +39,9 @@ def check_winner(computer_choice, user_choice):
             result = "Win"
     else:
         if user_choice == "Rock":
-            result = "Lose"
-        else:
             result = "Win"
+        else:
+            result = "Lose"
 
     if result == "Win":
         print("You win.")
@@ -71,7 +63,7 @@ play_again = True
 while play_again:
     print_info()
     user_choice = get_user_choice()
-    computer_choice = random.choice(spr_list)
+    computer_choice = spr_dict[random.choice(list(spr_dict.keys()))]
     print("\nComputer choice: ", computer_choice)
     print("User choice: ", user_choice)
     check_winner(computer_choice, user_choice)
